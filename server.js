@@ -8,10 +8,10 @@ app.use(express.json());
 
 // REPLACE WITH YOUR SAFARICOM CREDENTIALS
 const MPESA_CONFIG = {
-    consumerKey: 'YOUR_CONSUMER_KEY_HERE',
-    consumerSecret: 'YOUR_CONSUMER_SECRET_HERE',
+    consumerKey: '4qaHyuKfjFK0aqPfTmfLOC8ylaQVpRaRGgypQzHa0YBGngAZ',
+    consumerSecret: 'Gl6rz6XApD8qp1l8uNmpsfgnuMYy8PNljXKItswq3eN3e0MWBf37pKaAPFD99RDS',
     shortCode: '174379',
-    passkey: 'YOUR_PASSKEY_HERE',
+    passkey: 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
     callbackUrl: 'https://your-backend.onrender.com/api/callback'
 };
 
