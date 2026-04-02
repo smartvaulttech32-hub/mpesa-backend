@@ -1,0 +1,7 @@
+{
+  "name": "mpesa-backend",
+  "version": "1.0.0",
+  "main": "mpesa-stk.js",
+  "scripts": { "start": "node mpesa-stk.js" },
+  "dependencies": { "express": "^4.18.2", "axios": "^1.4.0", "cors": "^2.8.5" }
+}
