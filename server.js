@@ -92,6 +92,16 @@ app.post('/api/callback', (req, res) => {
     
     res.json({ ResultCode: 0, ResultDesc: "Success" });
 });
-
+// Add this endpoint to check payment status
+app.get('/api/payment-status/:orderId', async (req, res) => {
+    const orderId = req.params.orderId;
+    
+    // In production, check Google Sheets for order status
+    // For demo, return pending (will be updated via callback)
+    res.json({ 
+        orderId: orderId, 
+        status: 'PENDING'
+    });
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
