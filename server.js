@@ -6,17 +6,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// REPLACE WITH YOUR SAFARICOM CREDENTIALS
 const MPESA_CONFIG = {
     consumerKey: '4qaHyuKfjFK0aqPfTmfLOC8ylaQVpRaRGgypQzHa0YBGngAZ',
     consumerSecret: 'Gl6rz6XApD8qp1l8uNmpsfgnuMYy8PNljXKItswq3eN3e0MWBf37pKaAPFD99RDS',
     shortCode: '174379',
     passkey: 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
-    callbackUrl: 'https://your-backend.onrender.com/api/callback'
+    callbackUrl: 'https://mpesa-backend.onrender.com/api/callback'
 };
 
+// THIS ROOT ROUTE FIXES THE 404
 app.get('/', (req, res) => {
-    res.json({ message: 'M-Pesa API Server is running!' });
+    res.json({ 
+        status: 'active',
+        message: 'M-Pesa API Server is running!',
+        timestamp: new Date().toISOString()
+    });
 });
 
 app.post('/api/stkpush', async (req, res) => {
