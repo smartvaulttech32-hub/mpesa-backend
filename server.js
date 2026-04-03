@@ -122,6 +122,15 @@ app.get('/api/payment-status/:orderId', (req, res) => {
     const status = paymentStatus[orderId] || { status: 'PENDING' };
     res.json(status);
 });
-
+app.post('/api/intasend-webhook', (req, res) => {
+    const { api_ref, status, amount, mpesa_receipt } = req.body;
+    
+    if (status === 'COMPLETE') {
+        paymentStatus[api_ref] = { status: 'PAID', mpesaCode: mpesa_receipt, amount: amount };
+        console.log(`✅ Order ${api_ref} paid: KES ${amount}`);
+    }
+    
+    res.json({ status: 'ok' });
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
